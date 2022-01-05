@@ -61,6 +61,7 @@ public class ObserverRegistry {
   private List<Method> getAnnotatedMethods(Class<?> clazz) {
     List<Method> annotatedMethods = new ArrayList<>();
     for (Method method : clazz.getDeclaredMethods()) {
+      // 判断 method上是否有 Subscribe注解
       if (method.isAnnotationPresent(Subscribe.class)) {
         Class<?>[] parameterTypes = method.getParameterTypes();
         //        Preconditions.checkArgument(parameterTypes.length == 1,
